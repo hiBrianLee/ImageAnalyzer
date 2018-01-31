@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Text Size -->
+    <dimen name="textSizeHeadline">24sp</dimen>
+    <dimen name="textSizeTitle">20sp</dimen>
+    <dimen name="textSizeSubhead">16sp</dimen>
+    <dimen name="textSizeBody">14sp</dimen>
+    <dimen name="textSizeCaption">12sp</dimen>
+
+    <!-- Tracking -->
+    <dimen name="trackingBody" format="float" type="dimen">0.02</dimen>
+
+    <!-- Text Colors -->
+    <color name="textPrimary">#DE000000</color>
+    <color name="textSecondary">#8A000000</color>
+    <color name="textDisabled">#61000000</color>
+
+    <style name="Text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:textSize">@dimen/textSizeBody</item>
+        <item name="android:textColorLink">@color/colorAccent</item>
+    </style>
+
+    <style name="Text.Paragraph">
+        <item name="android:lineSpacingMultiplier">1.15</item>
+    </style>
+
+    <style name="Text.Medium">
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="Text.Subhead" parent="Text.Medium">
+        <item name="android:textSize">@dimen/textSizeSubhead</item>
+    </style>
+
+    <style name="Text.Button" parent="Text.Medium">
+        <item name="android:padding">@dimen/halfMargin</item>
+        <item name="android:textColor">@color/button_text_color</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">@dimen/trackingBody</item>
+        <item name="android:background">@drawable/touch_feedback</item>
+    </style>
+
+</resources>

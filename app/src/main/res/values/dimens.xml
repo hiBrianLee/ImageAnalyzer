@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="defaultMargin">16dp</dimen>
+    <dimen name="quarterMargin">4dp</dimen>
+    <dimen name="halfMargin">8dp</dimen>
+    <dimen name="doubleMargin">32dp</dimen>
+
+    <dimen name="galleryGridPadding">4dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+</resources>

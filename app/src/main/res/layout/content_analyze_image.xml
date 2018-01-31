@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context="com.hibrianlee.imageanalyzer.activity.AnalyzeImageActivity"
+        tools:showIn="@layout/activity_analyze_image">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.hibrianlee.imageanalyzer.viewmodel.AnalyzeImageViewModel"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/image"
+            android:scaleType="fitCenter"
+            app:layout_constraintDimensionRatio="H,4:3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:imagePath="@{viewModel.imagePath}"/>
+
+        <TextView
+            android:id="@+id/analyzeButton"
+            style="@style/Text.Button"
+            android:layout_marginEnd="@dimen/defaultMargin"
+            android:enabled="@{viewModel.analyzeEnabled}"
+            android:onClick="@{() -> viewModel.onClickAnalyze()}"
+            android:text="@string/analyze"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageView"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/analyzeButton"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            bind:visibility="@{viewModel.progressBarVisibility}">
+
+            <ProgressBar
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                style="@style/Text"
+                android:layout_marginTop="@dimen/defaultMargin"
+                android:text="@string/analyzing"
+                android:textColor="@color/textDisabled"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            bind:visibility="@{viewModel.errorVisibility}"
+            tools:visibility="gone">
+
+            <TextView
+                style="@style/Text"
+                android:textSize="64sp"
+                android:text="@string/thinking_face"/>
+
+
+            <TextView
+                style="@style/Text.Paragraph"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/defaultMargin"
+                android:text="@string/something_went_wrong"/>
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

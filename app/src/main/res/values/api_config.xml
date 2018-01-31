@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="google_cloud_vision_api_url">https://vision.googleapis.com</string>
+    <string name="google_cloud_vision_api_key">your_google_cloud_vision_api_key</string>
+</resources>

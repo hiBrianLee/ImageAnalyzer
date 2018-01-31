@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Image Analyzer</string>
+
+    <!-- Gallery -->
+    <string name="permission_header">To get started, give Image Analyzer access</string>
+    <string name="permission_request">Image Analyzer needs access to your photos to analyze images.</string>
+    <string name="permission_denied">Image Analyzer needs access to your photos to analyze images. Please enable Storage permission in the app setting.</string>
+    <string name="grant_access">Grant Access</string>
+    <string name="open_app_setting">Open App Setting</string>
+
+    <!-- Analyze Image -->
+    <string name="image">image</string>
+    <string name="analyze">Analyze</string>
+    <string name="analyzing">Analyzing…</string>
+    <string name="thinking_face">🤔</string>
+    <string name="something_went_wrong">Something went wrong…\nPlease try again later.</string>
+</resources>

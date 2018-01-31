@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context="com.hibrianlee.imageanalyzer.activity.GalleryActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.hibrianlee.imageanalyzer.viewmodel.GalleryViewModel"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            bind:visibility="@{viewModel.galleryVisibility}"
+            tools:visibility="gone"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/defaultMargin"
+            android:paddingRight="@dimen/defaultMargin"
+            bind:visibility="@{viewModel.permissionVisibility}">
+
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/doubleMargin"
+                android:tint="@color/gray500"
+                app:srcCompat="@drawable/ic_image_black_24dp"/>
+
+            <TextView
+                style="@style/Text.Subhead"
+                android:layout_marginBottom="@dimen/defaultMargin"
+                android:text="@string/permission_header"/>
+
+            <TextView
+                style="@style/Text.Paragraph"
+                android:layout_marginBottom="@dimen/doubleMargin"
+                android:text="@{viewModel.permissionRequestText}"
+                tools:text="@string/permission_request"/>
+
+            <TextView
+                style="@style/Text.Button"
+                android:layout_gravity="center"
+                android:onClick="@{() -> viewModel.onClickPermission()}"
+                android:text="@{viewModel.permissionButtonText}"
+                tools:text="@string/grant_access"/>
+
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"/>
+        </LinearLayout>
+    </FrameLayout>
+</layout>

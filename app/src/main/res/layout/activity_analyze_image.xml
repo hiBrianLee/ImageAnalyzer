@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context="com.hibrianlee.imageanalyzer.activity.AnalyzeImageActivity"
+        tools:showIn="@layout/activity_analyze_image">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.hibrianlee.imageanalyzer.viewmodel.AnalyzeImageViewModel"/>
+    </data>
+
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <include
+            layout="@layout/content_analyze_image"
+            bind:viewModel="@{viewModel}"/>
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

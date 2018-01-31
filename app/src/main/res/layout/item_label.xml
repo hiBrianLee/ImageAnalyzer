@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.hibrianlee.imageanalyzer.viewmodel.LabelViewModel"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/halfMargin">
+
+        <TextView
+            android:id="@+id/labelView"
+            style="@style/Text"
+            android:background="@drawable/round_pill_bg"
+            android:paddingBottom="@dimen/quarterMargin"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="@dimen/quarterMargin"
+            android:text="@{viewModel.label}"
+            android:textSize="@{viewModel.textSize}"
+            tools:text="Apple"/>
+    </FrameLayout>
+</layout>

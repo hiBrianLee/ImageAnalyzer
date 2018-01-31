@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.hibrianlee.imageanalyzer"
+        minSdkVersion 24
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    buildToolsVersion '27.0.3'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.android.support:support-v4:${rootProject.ext.supportLibraryVersion}"
+    implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibraryVersion}"
+    implementation "com.android.support:recyclerview-v7:${rootProject.ext.supportLibraryVersion}"
+    implementation "com.android.support:design:${rootProject.ext.supportLibraryVersion}"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-inline:2.13.0'
+
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.4.0'
+    implementation 'com.github.bumptech.glide:glide:4.4.0'
+
+    implementation 'org.greenrobot:eventbus:3.1.1'
+
+    implementation "com.squareup.retrofit2:retrofit:${rootProject.ext.retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-jackson:${rootProject.ext.retrofitVersion}"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+
+    implementation "com.fasterxml.jackson.core:jackson-core:${rootProject.ext.jacksonVersion}"
+    implementation "com.fasterxml.jackson.core:jackson-databind:${rootProject.ext.jacksonVersion}"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:${rootProject.ext.jacksonVersion}"
+
+    implementation 'com.google.android:flexbox:0.3.1'
+}
